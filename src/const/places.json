@@ -1,90 +1,90 @@
 {
-	center: {
-		
-		title : 'Tel-Aviv',
-		location : {
-			 lat : 32.0852999,
-             lng : 34.78176759999999
-		}
-		
-		bounds : {
-               northeast : {
-                  lat : 32.146611,
-                  lng : 34.8519761
-               },
-               southwest : {
-                  lat : 32.029252,
-                  lng : 34.7425159
-               }
-		}
-	}
+	"center": {
 
-	places: [
-		
-		
+		"title": "Tel-Aviv",
+		"location": {
+			"lat": 32.0852999,
+			"lng": 34.78176759999999
+		},
+
+		"bounds": {
+			"northeast": {
+				"lat": 32.146611,
+				"lng": 34.8519761
+			},
+			"southwest": {
+				"lat": 32.029252,
+				"lng": 34.7425159
+			}
+		}
+	},
+
+	"places" : [
+
+
 		{
-			title : 'Old Train Station',
-			compound_code : '3Q56+GR tel aviv',
-			global_code : '8G4P3Q56+GR',
-			place_id : 'ChIJKU5P6CRKHRURfAFNcP94mZs',
-			location: {
-				lat : 32.0588431,
-            	lng : 34.7620022
+			"title": "Old Train Station",
+			"compound_code": "3Q56+GR tel aviv",
+			"global_code": "8G4P3Q56+GR",
+			"place_id": "ChIJKU5P6CRKHRURfAFNcP94mZs",
+			"location": {
+				"lat": 32.0588431,
+				"lng": 34.7620022
 			}
 		},
-		
+
 		{
-			title : 'Bauhaus Center Tel Aviv',
-			compound_code : '3QGF+HQ  tel aviv',
-			global_code : '8G4P3QGF+HQ',			
-         	place_id : 'ChIJfbQnpHhMHRURIfixJQvC5eQ',
-			location: {
-				lat : 32.0764595,
-            	lng : 34.7744228
+			"title": "Bauhaus Center Tel Aviv",
+			"compound_code": "3QGF+HQ  tel aviv",
+			"global_code": "8G4P3QGF+HQ",
+			"place_id": "ChIJfbQnpHhMHRURIfixJQvC5eQ",
+			"location": {
+				"lat": 32.0764595,
+				"lng": 34.7744228
 			}
 		},
-		
+
 		{
-			title : 'Habima Square',
-			compound_code : '3QCH+XR tel aviv',
-			global_code : '8G4P3QCH+XR',
-			place_id : 'ChIJC72L8YFLHRURukXv09VhNGA',
-			location: {
-				lat : 32.072387,
-            	lng : 34.7795841
+			"title": "Habima Square",
+			"compound_code": "3QCH+XR tel aviv",
+			"global_code": "8G4P3QCH+XR",
+			"place_id": "ChIJC72L8YFLHRURukXv09VhNGA",
+			"location": {
+				"lat": 32.072387,
+				"lng": 34.7795841
 			}
 		},
-		
+
 		{
-			title : 'Banana Beach',
-			compound_code : '3QC7+6C tel aviv',
-			global_code : '8G4P3QC7+6C',
-         	place_id : 'ChIJ66yYhiRJHRUR4o3ts5yCMHo',
-			location: {
-				lat : 32.0705236,
-            	lng : 34.7635345
+			"title": "Banana Beach",
+			"compound_code": "3QC7+6C tel aviv",
+			"global_code": "8G4P3QC7+6C",
+			"place_id": "ChIJ66yYhiRJHRUR4o3ts5yCMHo",
+			"location": {
+				"lat": 32.0705236,
+				"lng": 34.7635345
 			}
 		},
-		
+
 		{
-			title : 'Falafel',
-			compound_code : '3QCC+8Q tel aviv',
-			global_code : '8G4P3QCC+8Q',
-			place_id : 'ChIJwT87pYFMHRURykARUs5YeUY',
-			location: {
-				lat : 32.0708443,
-            	lng : 34.7718987
+			"title": "Falafel",
+			"compound_code": "3QCC+8Q tel aviv",
+			"global_code": "8G4P3QCC+8Q",
+			"place_id": "ChIJwT87pYFMHRURykARUs5YeUY",
+			"location": {
+				"lat": 32.0708443,
+				"lng": 34.7718987
 			}
 		},
-		
+
 		{
-			title : 'Sarona Market',
-			compound_code : '3QCP+HQ tel aviv',
-			global_code : '8G4P3QCP+HQ',
-			place_id : 'ChIJu_9NFJ1LHRURqnCPWAarsj0',
-			location: {
-				lat : 32.0714008,
-            	lng : 34.7869421
+			"title": "Sarona Market",
+			"compound_code": "3QCP+HQ tel aviv",
+			"global_code": "8G4P3QCP+HQ",
+			"place_id": "ChIJu_9NFJ1LHRURqnCPWAarsj0",
+			"location": {
+				"lat": 32.0714008,
+				"lng": 34.7869421
 			}
 		}
 	]
