@@ -7,43 +7,50 @@ import {withScriptjs,
 		InfoWindow} from "react-google-maps";
 
 import styles from './const/map-styles';
-//import pin from "./img/pin.png";
 
 const Map = withScriptjs(withGoogleMap((props) =>{
 
-	const markers = props.places.map( val =>
-		<Marker
-			key={ val.place_id }
-			title={ val.title }
-			position={ val.location }
-			animation={ 2 } // 1 - bounce, 2 -drop
-			//icon= pin //TODO trouble with scaling size
-			visible={ val.visible }
-			onClick={ () => props.onMarkerClick(val) }
-		>
-			{ val === props.activeMarker &&
-				(<InfoWindow onCloseClick={ props.onInfoClose }>
-					<div> {val.title} </div>
-				</InfoWindow>	)
-			}
+	const bounds = new window.google.maps.LatLngBounds()
+	bounds.extend( props.center.bounds.southwest )
+	bounds.extend( props.center.bounds.northeast )
+
+	const markers = props.places.map( val =>{
+
+		if (val.visible !== false) bounds.extend(val.location)
+
+		const animation = val === props.activeMarker ? 2 : ''
+
+		return (
+			<Marker
+				key={ val.place_id }
+				title={ val.title }
+				position={ val.location }
+				animation={ animation } // 1 - bounce, 2 -drop
+				visible={ val.visible }
+				onClick={ () => props.onMarkerClick(val) }
+			>
+				{ val === props.activeMarker &&
+					(<InfoWindow onCloseClick={ props.onInfoClose }>
+						<div> {val.title} </div>
+					</InfoWindow>	)
+				}
 
 
-		</Marker>
-	)
+			</Marker>
+		)
+	})
 
 	const { center } = props
 
 	return (
 		
 		<GoogleMap
-			defaultZoom={14}
-			center={ center.location }
+			defaultZoom={13}
+			defaultCenter={ center.location }
 			defaultOptions={{ styles: styles,
-							mapTypeControl: false,
-							bounds: center.bounds
+							mapTypeControl: false
 							}}
-			bounds={ center.bounds }
-
+			ref={ map => map && map.fitBounds( bounds ) }
 			>
 			{markers}
 		</GoogleMap>
