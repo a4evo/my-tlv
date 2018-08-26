@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Map from './Map';
 import Menu from './Menu';
 
-import logo from './logo.svg';
+import logo from './img/cityscape.svg';
 import './App.css';
 
 import places from './const/places.json';
@@ -26,6 +26,7 @@ class App extends Component {
 			containerElement={<div id="map" role="application" />}
   			mapElement={<div style={{ height: `100%` }} />}
   			center={ places.center }
+  			places={ places.places }
 		/>
 		
       </div>

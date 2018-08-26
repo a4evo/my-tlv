@@ -1,13 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import PropTypes from 'prop-types';
+import {withScriptjs,
+		withGoogleMap,
+		GoogleMap,
+		Marker,
+		InfoWindow } from "react-google-maps";
 
-import styles from './const/map-styles'
-import places from './const/places'
+import styles from './const/map-styles';
+//import pin from "./img/pin.png";
 
 const Map = withScriptjs(withGoogleMap((props) =>{
 
-	const markers = []
+	const markers = props.places.map( val =>
+		<Marker
+			key={ val.place_id }
+			title={ val.title }
+			position={ val.location }
+			animation={2} // 1 - bounce, 2 -drop
+			//icon= pin //TODO trouble with scaling size
+			visible={ val.visible }
+		>
+
+		</Marker>
+	)
+
 	const { center } = props
 
 	return (
@@ -16,8 +32,10 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 			defaultZoom={14}
 			center={ center.location }
 			defaultOptions={{ styles: styles,
-							mapTypeControl: false
+							mapTypeControl: false,
+							bounds: center.bounds
 							}}
+			bounds={ center.bounds }
 
 			>
 			{markers}
@@ -28,7 +46,8 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 }))
 
 Map.propTypes = {
-	center: PropTypes.object.isRequired
+	center: PropTypes.object.isRequired,
+	places: PropTypes.array.isRequired
 }
 
 export default Map
