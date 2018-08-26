@@ -13,7 +13,7 @@ class App extends Component {
 	state = {
 		places: [],
 		activeMarker: {},
-		menuOpened: true
+		menuOpened: false
 	}
 
 	componentDidMount() {
@@ -30,6 +30,7 @@ class App extends Component {
 	}
 
 	filterPlaces ( query ) {
+		this.clearActiveMarker()
 		const filtered = this.state.places.map( place =>{
 			var regex = RegExp(query, 'gi')
 			place.visible = regex.test(place.title) ? true : false
