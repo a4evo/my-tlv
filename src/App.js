@@ -22,6 +22,7 @@ class App extends Component {
 
 	setActiveMarker( place ) {
 		this.setState({ activeMarker: place })
+		if (this.state.menuOpened) this.toggleMenu()
 	}
 
 	clearActiveMarker() {
