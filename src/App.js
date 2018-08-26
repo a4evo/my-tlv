@@ -12,7 +12,8 @@ class App extends Component {
 
 	state = {
 		places: [],
-		activeMarker: {}
+		activeMarker: {},
+		menuOpened: true
 	}
 
 	componentDidMount() {
@@ -36,21 +37,40 @@ class App extends Component {
 		this.setState({ places: filtered })
 	}
 
+	toggleMenu = () => {
+//		document.getElementById('menu').classList.toggle('open')
+//		if menu opened -> close, if closed -> open
+		this.setState({ menuOpened: (this.state.menuOpened) ? false : true })
+	}
+
 	render() {
-		const { places, activeMarker } = this.state
+		const { places, activeMarker, menuOpened } = this.state
+		const showMenuButtonTabIndex = menuOpened ? -1 : 0
     return (
       <div className="App">
 
         <header className="App-header">
-          <img src={ logo } className="App-logo" alt="logo" />
+          <img src={ logo } className="App-logo" alt="Logo" />
           <h1 className="App-title">My Tel Aviv</h1>
         </header>
 		
+        {/*burger button*/}
+		<button
+			aria-label="Display menu"
+			className="backdrop"
+			tabIndex={ showMenuButtonTabIndex }
+			aria-hidden="true"
+			onClick={ this.toggleMenu }
+		></button>
+
+
         <Menu
 			places={ places }
 			activeMarker={ activeMarker }
 			onLiClick={ place => this.setActiveMarker( place ) }
 			onFilter={ query => this.filterPlaces( query ) }
+			onCloseMenu={ this.toggleMenu }
+			opened={ menuOpened }
 		/>
 
 		<Map
