@@ -22,7 +22,7 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 			onClick={ () => props.onMarkerClick(val) }
 		>
 			{ val === props.activeMarker &&
-				(<InfoWindow >
+				(<InfoWindow onCloseClick={ props.onInfoClose }>
 					<div> {val.title} </div>
 				</InfoWindow>	)
 			}
@@ -56,7 +56,8 @@ Map.propTypes = {
 	center: PropTypes.object.isRequired,
 	places: PropTypes.array.isRequired,
 	activeMarker: PropTypes.object.isRequired,
-	onMarkerClick: PropTypes.func.isRequired
+	onMarkerClick: PropTypes.func.isRequired,
+	onInfoClose: PropTypes.func.isRequired
 }
 
 export default Map

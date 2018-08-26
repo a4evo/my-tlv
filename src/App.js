@@ -23,6 +23,11 @@ class App extends Component {
 		this.setState({ activeMarker: place })
 	}
 
+	clearActiveMarker() {
+		const empty = {}
+		this.setState({ activeMarker: empty })
+	}
+
 	filterPlaces ( query ) {
 		const filtered = this.state.places.map( place =>{
 			var regex = RegExp(query, 'gi')
@@ -57,6 +62,7 @@ class App extends Component {
   			places={ places }
   			activeMarker={ activeMarker }
   			onMarkerClick={ ( place ) => this.setActiveMarker( place )}
+  			onInfoClose={ () => this.clearActiveMarker() }
 		/>
 		
       </div>
