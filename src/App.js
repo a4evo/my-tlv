@@ -6,16 +6,29 @@ import Menu from './Menu';
 import logo from './img/cityscape.svg';
 import './App.css';
 
-import places from './const/places.json';
+import placesJSON from './const/places.json';
 
 class App extends Component {
+
+	state = {
+		places: [],
+		activeMarker: {}
+	}
+
+	componentDidMount() {
+		this.setState({ places: placesJSON.places })
+	}
+
+	setActiveMarker( place ) {
+		this.setState( {activeMarker: place} )
+	}
 
 	render() {
 
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={ logo } className="App-logo" alt="logo" />
           <h1 className="App-title">My Tel Aviv</h1>
         </header>
 		
@@ -25,8 +38,10 @@ class App extends Component {
 			loadingElement={<div style={{ height: `100%` }} />}
 			containerElement={<div id="map" role="application" />}
   			mapElement={<div style={{ height: `100%` }} />}
-  			center={ places.center }
-  			places={ places.places }
+  			center={ placesJSON.center }
+  			places={ this.state.places }
+  			activeMarker={ this.state.activeMarker }
+  			onMarkerClick={ ( place ) => this.setActiveMarker(place)}
 		/>
 		
       </div>
