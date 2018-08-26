@@ -20,7 +20,15 @@ class App extends Component {
 	}
 
 	setActiveMarker( place ) {
-		this.setState( {activeMarker: place} )
+		this.setState({ activeMarker: place })
+	}
+
+	filterPlaces ( query ) {
+		const filtered = this.state.places.map( place =>{
+			var regex = RegExp(query, 'gi')
+			place.visible = regex.test(place.title) ? true : false
+			return place})
+		this.setState({ places: filtered })
 	}
 
 	render() {
@@ -36,7 +44,8 @@ class App extends Component {
         <Menu
 			places={ places }
 			activeMarker={ activeMarker }
-			onLiClick={ ( place ) => this.setActiveMarker( place ) }
+			onLiClick={ place => this.setActiveMarker( place ) }
+			onFilter={ query => this.filterPlaces( query ) }
 		/>
 
 		<Map

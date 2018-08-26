@@ -6,19 +6,28 @@ class Menu extends Component {
 	static propTypes = {
 		places: PropTypes.array.isRequired,
 		activeMarker: PropTypes.object.isRequired,
-		onLiClick: PropTypes.func.isRequired
+		onLiClick: PropTypes.func.isRequired,
+		onFilter: PropTypes.func.isRequired
 	}
 
 	render () {
-		const { places, activeMarker } = this.props
+		const { places, activeMarker, onLiClick, onFilter } = this.props
+
+		const found = places.filter( place => place.visible !== false )
 		return (
 			<div id="menu">Menu
-				<input type="text" placeholder="Type to filter"/>
-				{ places.length > 0 ? (
+
+				<input
+					type="text"
+					placeholder="Type to filter"
+					onChange={ e => onFilter(e.target.value) }
+				/>
+
+				{ found.length > 0 ? (
 					<ul>
-						{places.map( place => (
+						{found.map( place => (
 							<li key={place.place_id}>
-								<button onClick={ () => this.props.onLiClick(place)}>
+								<button onClick={ () => onLiClick(place)}>
 									{ place.title }
 								</button>
 							</li>
