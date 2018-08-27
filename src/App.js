@@ -18,6 +18,11 @@ class App extends Component {
 
 	componentDidMount() {
 		this.setState({ places: placesJSON.places })
+		
+		window.gm_authFailure = () => {
+		  alert('An error occurred while trying to load Google Map')
+		}
+
 	}
 
 	//show infoWindow on 'place' marker
