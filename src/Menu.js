@@ -5,7 +5,6 @@ class Menu extends Component {
 	
 	static propTypes = {
 		places: PropTypes.array.isRequired,
-		activeMarker: PropTypes.object.isRequired,
 		onLiClick: PropTypes.func.isRequired,
 		onFilter: PropTypes.func.isRequired,
 		onCloseMenu: PropTypes.func.isRequired,
@@ -13,7 +12,7 @@ class Menu extends Component {
 	}
 
 	render () {
-		const { places, activeMarker, onLiClick, onFilter, onCloseMenu, opened } = this.props
+		const { places, onLiClick, onFilter, onCloseMenu, opened } = this.props
 
 		const menuState = opened ? "open" : ""
 		const tabIndex = opened ? 0 : -1
