@@ -17,6 +17,7 @@ class Menu extends Component {
 		const menuState = opened ? "open" : ""
 		const tabIndex = opened ? 0 : -1
 
+		//store all locations that are NOT invisible
 		const found = places.filter( place => place.visible !== false )
 
 		return (
@@ -27,10 +28,10 @@ class Menu extends Component {
 
 					<button
 						onClick={ onCloseMenu }
-
-					   className="menu-close"
-					   id="main-menu-close"
-					   aria-label="Close main menu"></button>
+						className="menu-close"
+						id="main-menu-close"
+						aria-label="Close main menu">
+					 </button>
 				</div>
 
 				<input

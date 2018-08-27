@@ -8,8 +8,7 @@ class ExtraInfo extends Component {
 	}
 
 	state = {
-		imgs: [],
-		err: ""
+		imgs: []
 	}
 
 	componentDidMount () {
@@ -32,6 +31,7 @@ class ExtraInfo extends Component {
 		const { title } = this.props.place
 		const { imgs } = this.state
 
+		//random index for result array
 		const i =  Math.floor(Math.random()*imgs.length);
 
 		const randomImg = imgs[i]

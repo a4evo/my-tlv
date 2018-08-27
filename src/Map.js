@@ -19,9 +19,11 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 
 		if (val.visible !== false) bounds.extend(val.location)
 
-		const animation = val === props.activeMarker ? 2 : ''
+		//if marker is active now set animation to drop, else remove animation
+		const animation = (val === props.activeMarker) ? 2 : ''
 
 		return (
+
 			<Marker
 				key={ val.place_id }
 				title={ val.title }
@@ -30,15 +32,17 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 				visible={ val.visible }
 				onClick={ () => props.onMarkerClick(val) }
 			>
+
 				{ val === props.activeMarker &&
+
 					(<InfoWindow onCloseClick={ props.onInfoClose }>
 						<div>
 							<h4>{val.title} </h4>
 							<ExtraInfo place={ val }/>
 						</div>
 					</InfoWindow>	)
-				}
 
+				}
 
 			</Marker>
 		)
@@ -56,7 +60,9 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 							}}
 			ref={ map => map && map.fitBounds( bounds ) }
 			>
+
 			{markers}
+
 		</GoogleMap>
 
 

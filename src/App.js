@@ -20,11 +20,15 @@ class App extends Component {
 		this.setState({ places: placesJSON.places })
 	}
 
+	//show infoWindow on 'place' marker
 	setActiveMarker( place ) {
 		this.setState({ activeMarker: place })
+
+		//if menu is open -> hide to mak infoWindow visible
 		if (this.state.menuOpened) this.toggleMenu()
 	}
 
+	//remove infoWindow
 	clearActiveMarker() {
 		const empty = {}
 		this.setState({ activeMarker: empty })
@@ -39,15 +43,16 @@ class App extends Component {
 		this.setState({ places: filtered })
 	}
 
+	//if menu opened -> close, if closed -> open
 	toggleMenu = () => {
-//		document.getElementById('menu').classList.toggle('open')
-//		if menu opened -> close, if closed -> open
 		this.setState({ menuOpened: (this.state.menuOpened) ? false : true })
 	}
 
 	render() {
+
 		const { places, activeMarker, menuOpened } = this.state
 		const showMenuButtonTabIndex = menuOpened ? -1 : 0
+
     return (
       <div className="App">
 
