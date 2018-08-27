@@ -4,7 +4,8 @@ import {withScriptjs,
 		withGoogleMap,
 		GoogleMap,
 	   	Marker,
-		InfoWindow} from "react-google-maps";
+		InfoWindow} from 'react-google-maps';
+import ExtraInfo from './ExtraInfo'
 
 import styles from './const/map-styles';
 
@@ -31,7 +32,10 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 			>
 				{ val === props.activeMarker &&
 					(<InfoWindow onCloseClick={ props.onInfoClose }>
-						<div> {val.title} </div>
+						<div>
+							<h4>{val.title} </h4>
+							<ExtraInfo place={ val }/>
+						</div>
 					</InfoWindow>	)
 				}
 
@@ -43,7 +47,7 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 	const { center } = props
 
 	return (
-		
+
 		<GoogleMap
 			defaultZoom={13}
 			defaultCenter={ center.location }

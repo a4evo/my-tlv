@@ -27,6 +27,7 @@
 			"compound_code": "3Q56+GR tel aviv",
 			"global_code": "8G4P3Q56+GR",
 			"place_id": "ChIJKU5P6CRKHRURfAFNcP94mZs",
+			"search": "train",
 			"location": {
 				"lat": 32.0588431,
 				"lng": 34.7620022
@@ -38,6 +39,7 @@
 			"compound_code": "3QGF+HQ  tel aviv",
 			"global_code": "8G4P3QGF+HQ",
 			"place_id": "ChIJfbQnpHhMHRURIfixJQvC5eQ",
+			"search": "bauhaus",
 			"location": {
 				"lat": 32.0764595,
 				"lng": 34.7744228
@@ -49,6 +51,7 @@
 			"compound_code": "3QCH+XR tel aviv",
 			"global_code": "8G4P3QCH+XR",
 			"place_id": "ChIJC72L8YFLHRURukXv09VhNGA",
+			"search": "square",
 			"location": {
 				"lat": 32.072387,
 				"lng": 34.7795841
@@ -60,6 +63,7 @@
 			"compound_code": "3QC7+6C tel aviv",
 			"global_code": "8G4P3QC7+6C",
 			"place_id": "ChIJ66yYhiRJHRUR4o3ts5yCMHo",
+			"search": "beach",
 			"location": {
 				"lat": 32.0705236,
 				"lng": 34.7635345
@@ -71,6 +75,7 @@
 			"compound_code": "3QCC+8Q tel aviv",
 			"global_code": "8G4P3QCC+8Q",
 			"place_id": "ChIJwT87pYFMHRURykARUs5YeUY",
+			"search": "falafel",
 			"location": {
 				"lat": 32.0708443,
 				"lng": 34.7718987
@@ -82,6 +87,7 @@
 			"compound_code": "3QCP+HQ tel aviv",
 			"global_code": "8G4P3QCP+HQ",
 			"place_id": "ChIJu_9NFJ1LHRURqnCPWAarsj0",
+			"search": "market",
 			"location": {
 				"lat": 32.0714008,
 				"lng": 34.7869421
