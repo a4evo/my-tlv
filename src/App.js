@@ -14,10 +14,10 @@ class App extends Component {
 		places: [],
 		activeMarker: {},
 		menuOpened: false
-	}
+	};
 
 	componentDidMount() {
-		this.setState({ places: placesJSON.places })
+		this.setState({ places: placesJSON.places });
 		
 		window.gm_authFailure = () => {
 		  alert('An error occurred while trying to load Google Map')
@@ -27,7 +27,7 @@ class App extends Component {
 
 	//show infoWindow on 'place' marker
 	setActiveMarker( place ) {
-		this.setState({ activeMarker: place })
+		this.setState({ activeMarker: place });
 
 		//if menu is open -> hide to mak infoWindow visible
 		if (this.state.menuOpened) this.toggleMenu()
@@ -35,28 +35,27 @@ class App extends Component {
 
 	//remove infoWindow
 	clearActiveMarker() {
-		const empty = {}
-		this.setState({ activeMarker: empty })
+		this.setState({ activeMarker: {} });
 	}
 
 	filterPlaces ( query ) {
-		this.clearActiveMarker()
+		this.clearActiveMarker();
 		const filtered = this.state.places.map( place =>{
-			var regex = RegExp(query, 'gi')
-			place.visible = regex.test(place.title) ? true : false
-			return place})
-		this.setState({ places: filtered })
+			const regex = RegExp(query, 'gi');
+			place.visible = regex.test(place.title);
+			return place});
+		this.setState({ places: filtered });
 	}
 
 	//if menu opened -> close, if closed -> open
 	toggleMenu = () => {
-		this.setState({ menuOpened: (this.state.menuOpened) ? false : true })
-	}
+		this.setState({ menuOpened: (!this.state.menuOpened) })
+	};
 
 	render() {
 
-		const { places, activeMarker, menuOpened } = this.state
-		const showMenuButtonTabIndex = menuOpened ? -1 : 0
+		const { places, activeMarker, menuOpened } = this.state;
+		const showMenuButtonTabIndex = menuOpened ? -1 : 0;
 
     return (
       <div className="App">
@@ -70,10 +69,10 @@ class App extends Component {
 		<button
 			aria-label="Display menu"
 			className="backdrop"
-			tabIndex={ showMenuButtonTabIndex }
+			tabIndex={showMenuButtonTabIndex}
 			aria-hidden="true"
-			onClick={ this.toggleMenu }
-		></button>
+			onClick={this.toggleMenu}
+			/>
 
 
         <Menu

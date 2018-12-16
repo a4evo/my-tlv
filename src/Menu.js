@@ -9,16 +9,16 @@ class Menu extends Component {
 		onFilter: PropTypes.func.isRequired,
 		onCloseMenu: PropTypes.func.isRequired,
 		opened: PropTypes.bool.isRequired
-	}
+	};
 
 	render () {
-		const { places, onLiClick, onFilter, onCloseMenu, opened } = this.props
+		const { places, onLiClick, onFilter, onCloseMenu, opened } = this.props;
 
-		const menuState = opened ? "open" : ""
-		const tabIndex = opened ? 0 : -1
+		const menuState = opened ? "open" : "";
+		const tabIndex = opened ? 0 : -1;
 
 		//store all locations that are NOT invisible
-		const found = places.filter( place => place.visible !== false )
+		const found = places.filter( place => place.visible !== false );
 
 		return (
 			<nav id="menu" aria-label="Main menu" className={ menuState } tabIndex={ tabIndex }>

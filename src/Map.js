@@ -11,16 +11,16 @@ import styles from './const/map-styles';
 
 const Map = withScriptjs(withGoogleMap((props) =>{
 
-	const bounds = new window.google.maps.LatLngBounds()
-	bounds.extend( props.center.bounds.southwest )
-	bounds.extend( props.center.bounds.northeast )
+	const bounds = new window.google.maps.LatLngBounds();
+	bounds.extend( props.center.bounds.southwest );
+	bounds.extend( props.center.bounds.northeast );
 
 	const markers = props.places.map( val =>{
 
-		if (val.visible !== false) bounds.extend(val.location)
+		if (val.visible) bounds.extend(val.location);
 
 		//if marker is active now set animation to drop, else remove animation
-		const animation = (val === props.activeMarker) ? 2 : ''
+		const animation = (val === props.activeMarker) ? 2 : '';
 
 		return (
 
@@ -46,9 +46,9 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 
 			</Marker>
 		)
-	})
+	});
 
-	const { center } = props
+	const { center } = props;
 
 	return (
 
@@ -67,7 +67,7 @@ const Map = withScriptjs(withGoogleMap((props) =>{
 
 
     );
-}))
+}));
 
 Map.propTypes = {
 	center: PropTypes.object.isRequired,
@@ -75,6 +75,6 @@ Map.propTypes = {
 	activeMarker: PropTypes.object.isRequired,
 	onMarkerClick: PropTypes.func.isRequired,
 	onInfoClose: PropTypes.func.isRequired
-}
+};
 
 export default Map

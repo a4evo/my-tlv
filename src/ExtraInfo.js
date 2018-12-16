@@ -5,11 +5,11 @@ class ExtraInfo extends Component {
 
 	static propTypes = {
 		place: PropTypes.object.isRequired
-	}
+	};
 
 	state = {
 		imgs: []
-	}
+	};
 
 	componentDidMount () {
 		this.getImages( this.props.place.search )
@@ -28,13 +28,13 @@ class ExtraInfo extends Component {
 
 	render() {
 
-		const { title } = this.props.place
-		const { imgs } = this.state
+		const { title } = this.props.place;
+		const { imgs } = this.state;
 
 		//random index for result array
 		const i =  Math.floor(Math.random()*imgs.length);
 
-		const randomImg = imgs[i]
+		const randomImg = imgs[i];
 
 		return (
 			<div>
